@@ -1,0 +1,75 @@
+### 500-annarchy.freedesktop.org
+
+Apache was using autoconfigured ServerName or annarchy.freedesktop.org with inappropriate default DocumentRoot at /var/www, which is a security issue due to www-data readable patchwork dotfile.
+
+Added this:
+
+    root@annarchy:/# cat /etc/apache2/conf.d/servername 
+    ServerName localhost
+
+Now it just seems to be broken.
+
+### 500-create.freedesktop.org:
+
+* create.freedesktop.org pointing at osuosl; unresponsive on osuosl
+* planet.inkscape.org pointing at inkscape; works
+
+### 500-mesa.freedesktop.org
+
+"down for maintenance" maybe should be redirecting to mesa3d.org?
+
+# 500-people.freedesktop.org
+
+Should userdirs be restricted to this domain?
+
+### 500-tinderbox.freedesktop.org
+
+Pointing at monad.printf.net
+
+## Dead domains
+
+* 500-tango.freedesktop.org tango.org
+* 500-download-ooo-build.freedesktop.org a pile of these
+* 500-ooo-build.freedesktop.org the same pile of these
+
+## domains pointing at Molly, working on Molly
+
+* gitweb.freedesktop.org
+* gitweb.cairographics.org
+* cgit.freedesktop.org
+
+## domains pointing at Gabe, working on Gabe
+
+* 500-planet.kernel.org
+* 500-standards.freedesktop.org
+* 500-system-tools-backends.freedesktop.org
+* 500-xlibs.freedesktop.org
+* 500-xapps.freedesktop.org
+
+## domains pointing at Gabe; redirecting back to Annarchy
+
+* 500-cairo.freedesktop.org
+* 500-dbus.freedesktop.org
+* 500-geoclue.freedesktop.org
+
+## domains pointing at Gabe, vhost unconfigured on Gabe
+
+* 500-anonsvn.freedesktop.org
+* 500-burn.freedesktop.org
+* 500-cut-and-paste.freedesktop.org
+* 500-download-ooo-build.freedesktop.org
+* 500-immqt.freedesktop.org
+* 500-openfontlibrary.freedesktop.org
+* 500-liblazy.freedesktop.org
+* 500-telepathy.freedesktop.org
+* 500-webcvs.freedesktop.org
+* 500-pchdtv.freedesktop.org
+
+## domains pointing at Gabe, broken on Gabe
+
+* 500-eventuality.freedesktop.org
+* 500-freedrtools.freedesktop.org
+* 500-harfbuzz.freedesktop.org
+* 500-scim.freedesktop.org
+* 500-xliff-tools.freedesktop.org
+
