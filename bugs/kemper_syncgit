@@ -1,0 +1,3 @@
+On Kemper, /etc/cron.d/syncgit is used to copy the contents of /home/*/*/.git/ to /srv/git.freedesktop.org/git/users/*/*/.
+
+This probably has something to do with /srv and /home being on different filesystems and the former not being exported over NFS. It is not clear why this would be, but some way to avoid this should probably be engineered.

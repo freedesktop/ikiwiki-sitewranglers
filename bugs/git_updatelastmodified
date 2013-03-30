@@ -1,0 +1,43 @@
+    From: root@kemper.freedesktop.org (Cron Daemon)
+    Subject: Cron <root@kemper> flock -n /var/run/cron.git_updatelastmodified -c "/scripts/processallrepos.sh /scripts/repolastmodified.sh"
+    Date: Fri, 29 Mar 2013 20:44:08 -0700 (PDT)
+    
+    error: object directory /srv/git.freedesktop.org/git/cairo.git/objects does not exist; check .git/objects/info/alternates.
+    fatal: missing object f12aa15466844b67ec22544c4feee17389ba4aeb for refs/heads/master
+    error: object directory /git/cairo.git/objects does not exist; check .git/objects/info/alternates.
+    fatal: missing object 71e9372bbdc5c85e14dfc1156269ae6f74802f4d for refs/heads/1.0
+    error: object directory /srv/git.freedesktop.org/git/cairo.git/objects does not exist; check .git/objects/info/alternates.
+    fatal: missing object d8d8694ac424f1c9b1ef57a5a08c6f4ad1a208ce for refs/heads/BRANCH_1_0
+    error: object directory /srv/git.freedesktop.org/git/cairo.git/objects does not exist; check .git/objects/info/alternates.
+    fatal: missing object 9595de96ac96bbfdc20177c0228c1673ad701d96 for refs/heads/cairo-xml
+    error: object directory /srv/git.freedesktop.org/git/cairo.git/objects does not exist; check .git/objects/info/alternates.
+    fatal: missing object f12aa15466844b67ec22544c4feee17389ba4aeb for refs/heads/master
+    error: object directory /srv/git.freedesktop.org/git/cairo.git/objects does not exist; check .git/objects/info/alternates.
+    fatal: missing object 4dbb1500f91680cccf4be3be5e91a5128261731a for refs/heads/BRANCH_1_0
+    error: object directory /git/cairo.git/objects does not exist; check .git/objects/info/alternates.
+    fatal: missing object e94251861565ed154e15ca3a7198ffe3828536fe for refs/heads/1.0
+    error: object directory /srv/git.freedesktop.org/git/cairo.git/objects does not exist; check .git/objects/info/alternates.
+    fatal: missing object f12aa15466844b67ec22544c4feee17389ba4aeb for refs/heads/master
+    error: object directory /srv/git.freedesktop.org/git/cairo.git/objects does not exist; check .git/objects/info/alternates.
+    fatal: missing object f12aa15466844b67ec22544c4feee17389ba4aeb for refs/heads/master
+    error: object directory /git/cairo.git/objects does not exist; check .git/objects/info/alternates.
+    fatal: missing object e94251861565ed154e15ca3a7198ffe3828536fe for refs/heads/1.0
+
+Several alternates files appear to have gone stale.
+
+    root@kemper:/git# for i in $(find . -name alternates); do [ -e $(grep cairo.git $i) ] || echo $i; done
+    ./users/andersca/cairo.git/objects/info/alternates
+    ./users/jamey/cairo/objects/info/alternates
+    ./users/keithp/repos/cairo.git/objects/info/alternates
+    ./users/emmanuel/cairo.git/objects/info/alternates
+    ./users/pavlov/cairo.git/objects/info/alternates
+    ./users/biesi/cairo.git/objects/info/alternates
+    ./users/jrmuizel/cairo.git/objects/info/alternates
+    ./users/davidr/cairo.git/objects/info/alternates
+    ./users/memmel/cairo.git/objects/info/alternates
+    ./users/krh/cairo.git/objects/info/alternates
+    root@kemper:/git# 
+
+These files, if directly modified, will be reverted by a process that copies git directories from out of users homes. They have been reverted there instead.
+
+[!taglink closed]
