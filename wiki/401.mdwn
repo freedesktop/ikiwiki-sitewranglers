@@ -1,0 +1,29 @@
+# Create a http://wiki.freedesktop.org/ account
+
+To avoid problems with spammers, wiki.freedesktop.org uses manually compiled
+htpasswd entries. If you want an account, you should find a way to generate a
+hash and safely send it to the sitewranglers, preferably with a signature.
+
+### Generation
+
+* remote shell e.g. on annarchy:
+    * `umask 0077`
+    * `htpasswd -c -m ~/userdb.htpasswd DesiredUsername` # and input your password at the prompts
+* local shell:
+    * `htpasswd -c -m /dev/stdout DesiredUsername` # and input your password at the prompts
+* browser:
+    * <https://secure.freedesktop.org/static/htpasswd.html>
+
+(Note if you customize the hash mechanism: we are currently using Apache 2.2 and thus do not yet support bcrypt hashes.)
+
+### Signing
+
+* `gpg --clearsign`
+* enter GPG passphrase
+* paste htpasswd entry
+* EOF with ctrl-d
+
+### Transmisison
+
+* If you do not have an existing shell account, send your signed hash to sitewranglers on IRC ( irc://irc.freenode.net/ usernames jrayhawk or Mithrandir ) or by email ( jrayhawk@freedesktop.org, tfheen@freedesktop.org ).
+* If you use an existing shell account (even someone else's) with which to put the htpasswd entry on Annarchy's filesystem somewhere we can find it, simply notify `sitewranglers@freedesktop.org`. Shell accounts have pre-established PGP trust.
