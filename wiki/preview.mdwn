@@ -4,7 +4,7 @@ To preview just the markdown portions, install `markdown` and run something like
 
     markdown file_to_preview.mdwn
 
-For preview more sophisticated Ikiwiki and template features, we'll need some additional infrastructure:
+To preview more sophisticated Ikiwiki and template features, we'll need some additional infrastructure:
 
     curl -o ~/bin/ikiwiki-fdo-mangler.pl http://wiki.freedesktop.org/sitewranglers/wiki/preview/ikiwiki-fdo-mangler.pl
     gpg --verify <(curl -s http://wiki.freedesktop.org/sitewranglers/wiki/preview/ikiwiki-fdo-mangler.pl.asc) ~/bin/ikiwiki-fdo-mangler.pl && chmod a+x ~/bin/ikiwiki-fdo-mangler.pl
@@ -20,3 +20,7 @@ To preview a temporary simple Ikiwiki rendering of a file, relying on configurat
 To preview a persistent full Ikiwiki rendering of the whole repository, relying only on configuration from wiki.freedesktop.org on the first run:
 
     ikiwiki-fdo-preview-full.sh optional_relative_path/to_file.mdwn
+
+You may wish to edit `ikiwiki-fdo-preview-full.sh` to move the persistent directory out of `/tmp`.
+
+Only tested on Debian; patches welcome.

@@ -1,6 +1,7 @@
 #!/bin/bash
 
-#set -xe
+#set -x
+set -e
 
 REPO=$(git remote -v show | grep freedesktop.org | head -n 1 | perl -pe 's~.+/(.+) .+~\1~')
 

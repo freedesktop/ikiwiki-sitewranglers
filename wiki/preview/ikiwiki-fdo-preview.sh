@@ -1,6 +1,7 @@
 #!/bin/bash
 
-#set -ex
+#set -x
+set -e
 
 OUTPUTDIR="$( mktemp -d )"
 trap 'rm -rf ${OUTPUTDIR}' EXIT
