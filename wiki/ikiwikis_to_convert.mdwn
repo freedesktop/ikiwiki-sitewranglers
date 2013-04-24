@@ -1,0 +1,3 @@
+xcb - permission from jamey granted
+cairo - need permission
+dolt - need permission
