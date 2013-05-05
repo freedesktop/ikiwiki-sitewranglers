@@ -1,12 +1,15 @@
-# Migration
+# MoinMoin-to-Ikiwiki Migration
 
     PROJECT=dri # replace 'dri' with something else, here
     echo '$conf->{"url"} = "http://'${PROJECT}'.freedesktop.org/wiki/";' > /etc/ikiwiki/piny/${PROJECT}.setup.pl # Some projects have oddball URLs, such as xorg. Careful.
-    echo Wiki for the ${PROJECT} project | newrepo ${PROJECT} # description for cgit/gitweb
-    git clone /srv/ikiwiki/git/${PROJECT}.git ~/${PROJECT} 
+    echo Wiki for the ${PROJECT} project | newrepo ${PROJECT} # description piped into magic ikiwiki creator
+
+If you want to convert everything (i.e. the wiki involved is not overloaded with spam):
+
+    git clone /srv/ikiwiki/git/${PROJECT}.git ~/${PROJECT}
     cd /srv/${PROJECT}.freedesktop.org/moin
     /usr/src/moin2iki/moin2git | ( cd ~/${PROJECT}/ && git fast-import ) # or -p PageName to grab one page at a time, which is probably wiser for spam-ridden Moins.
-    # Sometimes pages get missed; you can manually moint2git -p PageName them afterwards and then merge the resulting objects in.
+    # Sometimes pages get missed; you can manually moin2git -p PageName them afterwards and then merge the resulting objects in.
     ( cd ~/${PROJECT}/ && git checkout )
     /usr/src/moin2iki/moin2mdwn -r ~/${PROJECT} # or -p PageName again
     # May also need to mkdir data/pages-bad; mv data/pages/FindPage data/pages-bad/ and try again because moin2mdwn hates that particular one and possibly others
@@ -14,11 +17,16 @@
     git add *
     for file in $(find * -iname '*.moin'); do name=$(echo $file | perl -pe 's/(.+)\.moin/\1/'); test -f $name.mdwn && git rm $name.moin; done
     git commit -m 'moin2iki: Mass conversion with moin2mdwn tool' .
-    git mv FrontPage.mdwn index.mdwn
+    git mv FrontPage.mdwn index.mdwn # or Home.mdwn, or $Project.mdwn, or...
     git commit -m 'moin2iki: Moving FrontPage.mdwn to index.mdwn'
     git push origin master
+
+Otherwise you can follow the [[moin2iki_page_selection]] instructions.
+
+Disabling MoinMoin and enabling Ikiwiki:
+
     ln -s /srv/wiki.freedesktop.org/${PROJECT} /srv/${PROJECT}.freedesktop.org/www/wiki
-    ln -s /srv/ikiwiki/git/${PROJECT}.git /srv/${PROJECT}.freedesktop.org/git
+    ln -s /srv/ikiwiki/git/${PROJECT}.git /srv/${PROJECT}.freedesktop.org/git # user convenience shortcut
     perl -pe 's/(.*MoinWSGI.*)/#\1/' /etc/apache2/sites-enabled/500-${PROJECT}.freedesktop.org | sponge /etc/apache2/sites-enabled/500-${PROJECT}.freedesktop.org
     /etc/init.d/apache2 reload
 

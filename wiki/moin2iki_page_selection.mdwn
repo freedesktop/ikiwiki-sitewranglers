@@ -1,0 +1,8 @@
+# MoinMoin-to-Ikiwiki Selective Page Conversion
+
+    PROJECT=www # Change as appropriate
+    git clone /srv/ikiwiki/git/${PROJECT}.git ~/${PROJECT}
+    cd ~/${PROJECT}
+    moin2iki-import-page.sh PageName
+    moin2iki-import-page.sh ADifferent/PageName
+    git push
