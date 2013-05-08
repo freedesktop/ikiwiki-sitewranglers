@@ -1,8 +1,6 @@
 # Create a http://wiki.freedesktop.org/ account
 
-To avoid problems with spammers, wiki.freedesktop.org uses manually compiled
-htpasswd entries. If you want an account, you should find a way to generate a
-hash and safely send it to the sitewranglers, preferably with a signature.
+To avoid problems with spammers, wiki.freedesktop.org uses manually compiled htpasswd entries. If you want to be able to edit through the web, you should find a way to generate a hash and safely send it to the sitewranglers, preferably with a signature.
 
 ### Generation
 
