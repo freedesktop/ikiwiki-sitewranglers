@@ -9,6 +9,8 @@ On Annarchy:
     moin2iki-import-page.sh ADifferent/PageName
     git push
 
+The detached commit histories that this generates have deterministic hashes, so attempting to merge a page history that has already been merged is a safe no-op.
+
 There may be some manual cleanup to be done on the page itself; the automatic conversion creates pretty ugly but mostly functional Markdown, but is quite bad at dealing with preformatted text.
 
 You may want to read up on [[formatting|http://ikiwiki.info/ikiwiki/formatting/]], [[locally previewing files|preview]], and [[other Ikiwiki features|http://ikiwiki.info/features/]]
