@@ -27,7 +27,7 @@ Otherwise you can provide/follow the [[moin2iki_page_selection]] instructions. A
     rm -r pages/*/cache/ # Moin creates these for 404s
     find pages/ -type f -size 0 -print0 | xargs -0 rm # Moin creates empty edit-logs for 404s
     rmdir pages/* # Which will clear out those generated 404s
-    mv pages-bad/* data/pages/
+    mv pages-bad/* pages/
     chmod 775 .
     find pages -type d -print0 | xargs -0 chmod 775
     find pages -type f -print0 | xargs -0 chmod 664
