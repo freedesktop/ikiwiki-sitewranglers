@@ -16,3 +16,5 @@ There may be some manual cleanup to be done on the page itself; the automatic co
 You may want to read up on [[formatting|http://ikiwiki.info/ikiwiki/formatting/]], [[locally previewing files|preview]], and [[other Ikiwiki features|http://ikiwiki.info/features/]]
 
 If the conversion script fails, you may want to investigate why or do the conversion by hand by poking around in `/srv/${PROJECT}.freedesktop.org/moin/data/pages/Page_Name`. If page history is missing, archive.org and google cache in combination with html2markdown may be good options. We can potentially dig through backups, but it will likely involve several days of lagtime.
+
+For pages with spaces in their names, it may be necessary to run the import script twice, once with an argument of "Page Name" and once with an argument of "Page_Name". It is inconsistent about needing this and I haven't tracked down why.
