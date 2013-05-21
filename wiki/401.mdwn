@@ -1,12 +1,15 @@
-# Create a http://wiki.freedesktop.org/ account
+# wiki.freedesktop.org: 401 Unauthorized
 
-To avoid problems with spammers, wiki.freedesktop.org uses manually compiled htpasswd entries. If you want to be able to edit through the web, you should find a way to generate a hash and safely send it to the sitewranglers, preferably with a signature.
+wiki.freedesktop.org has two authentication methods; one is through [[ssh access to fd.o shell accounts|http://www.freedesktop.org/wiki/AccountRequests/]] (e.g. <git+ssh://wiki.freedesktop.org/srv/ikiwiki/git/sitewranglers.git> ), the other is over HTTPS (e.g. <https://secure.freedesktop.org/write/sitewranglers/ikiwiki.cgi?page=wiki%2F401&do=edit> ). 
+
+To avoid problems with spammers, the htpasswd entries associated with HTTPS authentication involve manual administration.
+
+If you have a freedesktop.org shell account, you can add or update any htpasswd entry: `ssh wiki.freedesktop.org sudo wikipasswd INSERT_DESIRED_USERNAME_HERE`. Use your powers wisely; everything is logged under version control.
+
+If you don't have a shell account, you should find a way to generate a hash and safely send it to the sitewranglers, preferably with a signature.
 
 ### Generation
 
-* remote shell e.g. on annarchy:
-    * `umask 0077`
-    * `htpasswd -c -m ~/userdb.htpasswd DesiredUsername` # and input your password at the prompts
 * local shell:
     * `htpasswd -c -m /dev/stdout DesiredUsername` # and input your password at the prompts
 * browser:
@@ -24,8 +27,7 @@ To avoid problems with spammers, wiki.freedesktop.org uses manually compiled htp
 ### Transmisison
 
 * If you do not have an existing shell account, send your signed hash to sitewranglers on IRC ( irc://irc.freenode.net/ usernames jrayhawk or Mithrandir ) or by email ( jrayhawk@freedesktop.org, tfheen@freedesktop.org ).
-* If you use an existing shell account (even someone else's) with which to put the htpasswd entry on Annarchy's filesystem somewhere we can find it, simply notify `sitewranglers@freedesktop.org`. Shell accounts have pre-established PGP trust.
 
-### Application
+### Sitewranglers
 
-* With a root account on annarchy, append the user's htpasswd entry to the /etc/apache2/userdb.basic file
+* With a root account on annarchy, append or replace the user's htpasswd entry in /etc/apache2/userdb.basic
