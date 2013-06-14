@@ -4,7 +4,7 @@ wiki.freedesktop.org has two authentication methods; one is through [[ssh access
 
 To avoid problems with spammers, the htpasswd entries associated with HTTPS authentication involve manual administration.
 
-If you have a freedesktop.org shell account, you can add or update any htpasswd entry: `ssh wiki.freedesktop.org sudo wikipasswd INSERT_DESIRED_USERNAME_HERE`. Use your powers wisely; everything is logged under version control.
+If you have a freedesktop.org shell account, you can add or update any htpasswd entry: `ssh wiki.freedesktop.org wikipasswd INSERT_DESIRED_USERNAME_HERE`. Use your powers wisely; everything is logged under version control.
 
 If you don't have a shell account, you should find a way to generate a hash and safely send it to the sitewranglers, preferably with a signature.
 
