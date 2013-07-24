@@ -1,6 +1,6 @@
 # wiki.freedesktop.org: 401 Unauthorized
 
-wiki.freedesktop.org has two authentication methods; one is through [[ssh access to fd.o shell accounts|http://www.freedesktop.org/wiki/AccountRequests/]] (e.g. <git+ssh://wiki.freedesktop.org/srv/ikiwiki/git/sitewranglers.git> ), the other is over HTTPS (e.g. <https://secure.freedesktop.org/write/sitewranglers/ikiwiki.cgi?page=wiki%2F401&do=edit> ). 
+wiki.freedesktop.org has two authentication methods; one is through [[ssh access to fd.o shell accounts|http://www.freedesktop.org/wiki/AccountRequests/]] (e.g. git+ssh://wiki.freedesktop.org/srv/ikiwiki/git/sitewranglers.git ), the other is over HTTPS (e.g. <https://secure.freedesktop.org/write/sitewranglers/ikiwiki.cgi?page=wiki%2F401&do=edit> ). 
 
 To avoid problems with spammers, the htpasswd entries associated with HTTPS authentication involve manual administration.
 
