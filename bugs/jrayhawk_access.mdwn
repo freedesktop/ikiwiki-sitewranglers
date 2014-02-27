@@ -1,6 +1,5 @@
 jrayhawk is lacking access to
 
-* culpepper
 * cornelius
 * molly
 * patrick
