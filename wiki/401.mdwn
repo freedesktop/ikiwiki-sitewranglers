@@ -26,7 +26,7 @@ If you don't have a shell account, you should find a way to generate a hash and 
 
 ### Transmission
 
-* If you do not have an existing shell account, send your signed hash to sitewranglers on IRC ( irc://irc.freenode.net/ usernames jrayhawk or Mithrandir ) or by email ( jrayhawk@freedesktop.org, tfheen@freedesktop.org ).
+* If you do not have an existing shell account, send your signed hash to wiki-requests@freedesktop.org.
 
 ### Sitewranglers
 
