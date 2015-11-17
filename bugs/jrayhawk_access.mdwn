@@ -1,6 +1,7 @@
 jrayhawk is lacking access to
 
 * cornelius
-* molly
+* emeril
 * patrick
 * ray
+* roastbeef
