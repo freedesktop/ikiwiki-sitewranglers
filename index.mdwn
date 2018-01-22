@@ -1,0 +1,1 @@
+[[!map pages="* and ! */* and ! ikiwiki and ! favicon.ico and ! *.css and ! *.png and ! shortcuts and ! sandbox and ! templates and ! recentchanges and ! wikiicons"]]
