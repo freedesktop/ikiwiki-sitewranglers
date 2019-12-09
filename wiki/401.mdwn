@@ -15,8 +15,6 @@ If you don't have a shell account, you should find a way to generate a hash and 
 * browser:
     * <https://secure.freedesktop.org/static/htpasswd.html>
 
-(Note if you customize the hash mechanism: we are currently using Apache 2.2 and thus do not yet support bcrypt hashes.)
-
 ### Signing
 
 * `gpg --clearsign`
